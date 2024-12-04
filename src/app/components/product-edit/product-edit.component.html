@@ -1,0 +1,62 @@
+<div class="container" *ngIf="product">
+    <h2>Editar Producto</h2>
+    <form (ngSubmit)="updateProduct()">
+      <div class="mb-3">
+        <label for="title" class="form-label">Título</label>
+        <input
+          type="text"
+          id="title"
+          class="form-control"
+          [(ngModel)]="product.title"
+          name="title"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="price" class="form-label">Precio</label>
+        <input
+          type="number"
+          id="price"
+          class="form-control"
+          [(ngModel)]="product.price"
+          name="price"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="description" class="form-label">Descripción</label>
+        <textarea
+          id="description"
+          class="form-control"
+          [(ngModel)]="product.description"
+          name="description"
+          rows="3"
+          required
+        ></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="category" class="form-label">ID de Categoría</label>
+        <input
+          type="number"
+          id="category"
+          class="form-control"
+          [(ngModel)]="product.categoryId"
+          name="categoryId"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="image" class="form-label">URL de la Imagen</label>
+        <input
+          type="text"
+          id="image"
+          class="form-control"
+          [(ngModel)]="product.images[0]"
+          name="image"
+          required
+        />
+      </div>
+      <button type="submit" class="btn btn-success">Actualizar Producto</button>
+    </form>
+  </div>
+  

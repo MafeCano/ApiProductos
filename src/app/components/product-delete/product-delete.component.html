@@ -1,0 +1,13 @@
+<div class="container" *ngIf="product">
+    <h2>Eliminar Producto</h2>
+    <div class="alert alert-danger">
+      <p>¿Estás seguro de que deseas eliminar el siguiente producto?</p>
+      <strong>{{ product.title }}</strong>
+      <p>{{ product.description }}</p>
+    </div>
+    <div class="d-flex justify-content-between">
+      <button class="btn btn-danger" (click)="deleteProduct()">Eliminar</button>
+      <button class="btn btn-secondary" (click)="cancel()">Cancelar</button>
+    </div>
+  </div>
+  

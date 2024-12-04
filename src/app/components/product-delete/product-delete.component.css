@@ -1,0 +1,11 @@
+.container {
+    margin-top: 20px;
+  }
+  .alert {
+    max-width: 600px;
+    margin: auto;
+  }
+  button {
+    min-width: 100px;
+  }
+  

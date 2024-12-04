@@ -1,0 +1,22 @@
+<div class="container" *ngIf="product">
+    <h2>Detalles del Producto</h2>
+    <div class="card">
+      <img
+        [src]="product.images[0]"
+        class="card-img-top"
+        alt="{{ product.title }}"
+      />
+      <div class="card-body">
+        <h5 class="card-title">{{ product.title }}</h5>
+        <p class="card-text">{{ product.description }}</p>
+        <p class="card-text"><strong>Precio:</strong> ${{ product.price }}</p>
+        <p class="card-text">
+          <strong>Categoría:</strong> {{ product.category?.name }}
+        </p>
+        <button class="btn btn-secondary" [routerLink]="['/products']">
+          Volver a la lista
+        </button>
+      </div>
+    </div>
+  </div>
+  
