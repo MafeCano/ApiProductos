@@ -2,7 +2,7 @@
     <div class="card shadow-sm p-4 mb-4 bg-light">
       <h2 class="text-center mb-4">Editar Usuario</h2>
       <form (ngSubmit)="updateUser()">
-        
+        <!-- Nombre -->
         <div class="form-group">
           <label for="name" class="form-label">Nombre</label>
           <input 
@@ -15,6 +15,7 @@
             placeholder="Ingrese el nombre del usuario">
         </div>
   
+        <!-- Email -->
         <div class="form-group mt-3">
           <label for="email" class="form-label">Email</label>
           <input 
@@ -27,6 +28,7 @@
             placeholder="Ingrese el email del usuario">
         </div>
   
+        <!-- Contraseña -->
         <div class="form-group mt-3">
           <label for="password" class="form-label">Contraseña</label>
           <input 
@@ -37,6 +39,18 @@
             name="password" 
             required 
             placeholder="Ingrese la contraseña del usuario">
+        </div>
+  
+        <!-- Avatar URL -->
+        <div class="form-group mt-3">
+          <label for="avatar" class="form-label">Avatar URL</label>
+          <input 
+            type="text" 
+            id="avatar" 
+            class="form-control form-control-lg" 
+            [(ngModel)]="user.avatar" 
+            name="avatar" 
+            placeholder="Ingrese la URL de la imagen del avatar">
         </div>
   
         <button 

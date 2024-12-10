@@ -5,11 +5,11 @@ import { ApiService } from '../../services/api.service';
 @Component({
   selector: 'app-category-edit',
   templateUrl: './category-edit.component.html',
-  styleUrl: './category-edit.component.css'
+  styleUrls: ['./category-edit.component.css']
 })
-export class CategoryEditComponent implements OnInit{
+export class CategoryEditComponent implements OnInit {
 
-  category = { name: '' };
+  category = { name: '', image: '' };  // Añadido el campo de imagen
 
   constructor(
     private route: ActivatedRoute,
@@ -28,7 +28,7 @@ export class CategoryEditComponent implements OnInit{
         this.category = data;
       },
       error: (err) => {
-        alert('Error al cargar la categoria')
+        alert('Error al cargar la categoria');
         console.error('Error al cargar categoría:', err);
       }
     });

@@ -4,10 +4,11 @@ import { ApiService } from '../../services/api.service';
 @Component({
   selector: 'app-users-list',
   templateUrl: './users-list.component.html',
-  styleUrl: './users-list.component.css'
+  styleUrls: ['./users-list.component.css']
 })
 export class UsersListComponent implements OnInit {
   users: any[] = [];
+  isLoading = false; // Para gestionar estados de carga
 
   constructor(private apiService: ApiService) {}
 
@@ -17,12 +18,16 @@ export class UsersListComponent implements OnInit {
 
   // Obtener la lista de usuarios
   getUsers(): void {
+    this.isLoading = true;
     this.apiService.getUsers().subscribe({
       next: (data) => {
         this.users = data;
+        this.isLoading = false;
       },
       error: (err) => {
         console.error('Error al obtener los usuarios:', err);
+        alert('Hubo un problema al cargar la lista de usuarios.');
+        this.isLoading = false;
       }
     });
   }
@@ -33,11 +38,12 @@ export class UsersListComponent implements OnInit {
       this.apiService.deleteUser(userId).subscribe({
         next: () => {
           alert('Usuario eliminado exitosamente');
-          this.getUsers(); // Actualizar la lista después de eliminar
+          // Elimina el usuario localmente para evitar recargar toda la lista
+          this.users = this.users.filter(user => user.id !== userId);
         },
         error: (err) => {
           console.error('Error al eliminar el usuario:', err);
-          alert('Hubo un error al eliminar el usuario');
+          alert('Hubo un error al eliminar el usuario. Por favor, inténtalo de nuevo.');
         }
       });
     }

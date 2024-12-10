@@ -23,9 +23,11 @@
           <td>{{ user.email }}</td>
           <td>
             <button class="btn btn-warning" [routerLink]="['/user-edit', user.id]">Editar</button>
-            <button class="btn btn-danger" [routerLink]="['/user-delete', user.id]">Eliminar</button>
+            <button class="btn btn-danger" (click)="deleteUser(user.id)">Eliminar</button>
           </td>
         </tr>
       </tbody>
     </table>    
 </div>
+
+<!-- <button class="btn btn-danger" [routerLink]="['/user-delete', user.id]">Eliminar</button> -->

@@ -1,18 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../../services/api.service';
-import { Router } from '@angular/router';
+import { Router } from '@angular/router'; // Importar el servicio Router
 
 @Component({
   selector: 'app-product-create',
-  templateUrl:'./product-create.component.html',
-  styleUrl: './product-create.component.css'
+  templateUrl: './product-create.component.html',
+  styleUrls: ['./product-create.component.css']
 })
-export class ProductCreateComponent implements OnInit{
+export class ProductCreateComponent implements OnInit {
   productForm: FormGroup;
   categories: any[] = []; // Lista de categorías
 
-  constructor(private fb: FormBuilder, private apiservice: ApiService) {
+  constructor(
+    private fb: FormBuilder, 
+    private apiservice: ApiService, 
+    private router: Router // Inyectar el Router para realizar la redirección
+  ) {
     // Inicializa el formulario con validaciones
     this.productForm = this.fb.group({
       title: ['', [Validators.required, Validators.minLength(3)]],
@@ -22,6 +26,7 @@ export class ProductCreateComponent implements OnInit{
       images: ['', [Validators.required, Validators.pattern(/^(http|https):\/\/[^ "]+$/)]], // Validar que sea una URL
     });
   }
+
   ngOnInit(): void {
     // Carga las categorías desde la API
     this.apiservice.getCategories().subscribe({
@@ -33,6 +38,7 @@ export class ProductCreateComponent implements OnInit{
       },
     });
   }
+
   onSubmit() {
     if (this.productForm.valid) {
       const formData = this.productForm.value;
@@ -59,7 +65,11 @@ export class ProductCreateComponent implements OnInit{
         next: (response) => {
           console.log('Producto creado con éxito:', response);
           alert('¡Producto creado con éxito!');
-          this.productForm.reset();
+          
+          // Redirigir a la lista de productos después de crear el producto
+          this.router.navigate(['/products']); // Aquí haces la redirección
+
+          this.productForm.reset(); // Resetea el formulario
         },
         error: (error) => {
           console.error('Error al crear el producto:', error);
