@@ -1,0 +1,97 @@
+/* Contenedor principal de la lista de usuarios */
+.user-list-container {
+    padding: 5px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Estilos para la tabla */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th, .table td {
+    padding: 12px;
+    text-align: left;
+}
+
+.table-striped tbody tr:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+
+.table th {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.table td {
+    font-size: 14px;
+    color: #333;
+}
+
+/* Estilos para el avatar */
+.avatar-cell {
+    text-align: center;
+}
+
+.avatar {
+    width: 100px; /* Aumentado el tamaño */
+    height: 100px; /* Aumentado el tamaño */
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ccc;
+}
+
+.no-avatar {
+    display: inline-block;
+    width: 100px; /* Aumentado el tamaño */
+    height: 100px; /* Aumentado el tamaño */
+    border-radius: 50%;
+    background-color: #e0e0e0;
+    color: #666;
+    text-align: center;
+    line-height: 100px; /* Centrado del texto */
+    font-size: 18px;
+}
+
+/* Estilos para los botones */
+.btn {
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-warning {
+    background-color: #0f6572;
+    border: none;
+    color: #fff;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border: none;
+    color: #fff;
+}
+
+.btn-warning:hover {
+    background-color: #09485b;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}
+
+/* Espacio entre los botones */
+.btn-warning {
+    margin-right: 10px; /* Añadir margen a la derecha del botón de editar */
+}

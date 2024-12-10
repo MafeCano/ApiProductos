@@ -1,0 +1,59 @@
+/* Fondo general */
+.user-edit-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f6f9;
+  }
+  
+  /* Estilos para el card del formulario */
+  .card {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+  }
+  
+  /* Título */
+  h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333333;
+  }
+  
+  /* Espaciado entre campos del formulario */
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  /* Estilos para los labels */
+  .form-label {
+    font-size: 16px;
+    font-weight: 500;
+    color: #555555;
+  }
+  
+  /* Input de texto */
+  input.form-control {
+    border-radius: 5px;
+    border: 1px solid #dcdfe1;
+    font-size: 14px;
+    padding: 12px;
+  }
+  
+  /* Botón de submit */
+  button.btn {
+    font-size: 16px;
+    font-weight: 600;
+    padding: 12px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+  }
+  
+  button.btn:hover {
+    background-color: #007bff;
+    opacity: 0.9;
+  }
+  

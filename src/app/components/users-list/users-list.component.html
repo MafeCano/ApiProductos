@@ -1,0 +1,31 @@
+<div class="user-list-container">
+    <h2>Lista de Usuarios</h2>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Avatar</th>
+          <th>Nombre</th>
+          <th>Email</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td class="avatar-cell">
+            <!-- Si hay imagen de perfil, se muestra, si no, se muestra el avatar del usuario -->
+            <img *ngIf="user.profilePicture" [src]="user.profilePicture" alt="Imagen de perfil" class="avatar">
+            <!-- Si no hay imagen de perfil pero sí avatar, se muestra el avatar -->
+            <img *ngIf="!user.profilePicture && user.avatar" [src]="user.avatar" alt="Avatar del usuario" class="avatar">
+            <!-- Si no hay imagen de perfil ni avatar, se muestra el texto 'No disponible' -->
+            <span *ngIf="!user.profilePicture && !user.avatar" class="no-avatar">No disponible</span>
+          </td>
+          <td>{{ user.name }}</td>
+          <td>{{ user.email }}</td>
+          <td>
+            <button class="btn btn-warning" [routerLink]="['/user-edit', user.id]">Editar</button>
+            <button class="btn btn-danger" [routerLink]="['/user-delete', user.id]">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>    
+</div>

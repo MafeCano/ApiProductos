@@ -6,10 +6,10 @@
       <div class="card h-100">
         <!-- Imagen del producto con respaldo -->
         <img
-          [src]="product.images?.[0] || 'https://via.placeholder.com/150?text=Sin+Imagen'"
-          alt="{{ product.title }}"
-          class="card-img-top"
-          onerror="this.src='https://via.placeholder.com/150?text=Sin+Imagen'"
+        [src]="getFirstImage(product.images)"
+        alt="Product Image"
+        (error)="onImageError($event)"
+        />
         />
         <!-- Información del producto -->
         <div class="card-body">

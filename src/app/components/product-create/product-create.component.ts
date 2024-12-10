@@ -9,31 +9,22 @@ import { Router } from '@angular/router';
   styleUrl: './product-create.component.css'
 })
 export class ProductCreateComponent implements OnInit{
-  productForm: FormGroup; // Formulario reactivo
+  productForm: FormGroup;
   categories: any[] = []; // Lista de categorías
 
-  constructor(
-    private fb: FormBuilder,
-    private apiService: ApiService,
-    private router: Router
-  ) {
+  constructor(private fb: FormBuilder, private apiservice: ApiService) {
     // Inicializa el formulario con validaciones
     this.productForm = this.fb.group({
       title: ['', [Validators.required, Validators.minLength(3)]],
       price: [0, [Validators.required, Validators.min(0)]],
       description: ['', [Validators.required]],
-      categoryId: [null, [Validators.required]], // Se asegura que se seleccione una categoría
-      images: ['', [Validators.required, Validators.pattern(/^(http|https):\/\/[^ "]+$/)]], // Valida URLs
+      categoryId: [1, [Validators.required]],
+      images: ['', [Validators.required, Validators.pattern(/^(http|https):\/\/[^ "]+$/)]], // Validar que sea una URL
     });
   }
-
   ngOnInit(): void {
-    this.loadCategories();
-  }
-
-  // Carga las categorías desde la API
-  loadCategories(): void {
-    this.apiService.getCategories().subscribe({
+    // Carga las categorías desde la API
+    this.apiservice.getCategories().subscribe({
       next: (categories) => {
         this.categories = categories;
       },
@@ -42,36 +33,37 @@ export class ProductCreateComponent implements OnInit{
       },
     });
   }
-
-  // Método para crear un producto
-  onSubmit(): void {
+  onSubmit() {
     if (this.productForm.valid) {
-      const formData = { ...this.productForm.value };
-
+      const formData = this.productForm.value;
+  
       // Asegúrate de que el campo de imagen sea una URL válida
       const imageUrl = formData.images.trim();
-
+  
       if (!imageUrl.startsWith('http')) {
         alert('Por favor, proporciona una URL de imagen válida.');
         return;
       }
-
-      // Verificar si el campo `images` debe ser un arreglo
+  
+      // Verificar si la imagen es una cadena que parece un arreglo y convertirla a un arreglo
       try {
-        formData.images = JSON.parse(imageUrl); // Si es JSON válido, lo parsea
-      } catch {
-        formData.images = [imageUrl]; // Si no, lo convierte en un arreglo
+        // Intentamos convertir el valor de "images" si parece una cadena JSON
+        formData.images = JSON.parse(imageUrl); // Convertir si es una cadena que representa un arreglo
+      } catch (e) {
+        // Si no es una cadena JSON válida, lo dejamos como un arreglo con una URL
+        formData.images = [imageUrl];
       }
-
-      // Llama al servicio para crear el producto
-      this.apiService.createProduct(formData).subscribe({
-        next: () => {
-          alert('Producto creado exitosamente');
-          this.router.navigate(['/products']);
+  
+      // Llamamos al servicio para crear el producto
+      this.apiservice.createProduct(formData).subscribe({
+        next: (response) => {
+          console.log('Producto creado con éxito:', response);
+          alert('¡Producto creado con éxito!');
+          this.productForm.reset();
         },
         error: (error) => {
           console.error('Error al crear el producto:', error);
-          alert('Error al crear el producto.');
+          alert('Hubo un error al intentar crear el producto.');
         },
       });
     } else {

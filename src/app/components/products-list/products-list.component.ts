@@ -53,4 +53,27 @@ export class ProductsListComponent implements OnInit{
     toggleExpand(product: any) {
       product.expanded = !product.expanded;
     }
+    
+  getFirstImage(images: string[]): string {
+    try {
+      // Intentar parsear JSON si es una cadena errónea
+      const parsedImages = JSON.parse(images[0]);
+      const imageUrl = Array.isArray(parsedImages) ? parsedImages[0] : parsedImages;
+      return this.fixImgurUrl(imageUrl);
+    } catch {
+      // Si no es necesario parsear, arreglar directamente la URL
+      return this.fixImgurUrl(images[0]);
+    }
+  }
+
+  fixImgurUrl(url: string): string {
+    if (url.includes('imgur.com') && !url.match(/\.(jpg|png|gif)$/)) {
+      return url + '.jpg'; // Añadir .jpg si no tiene extensión
+    }
+    return url;
+  }
+
+  onImageError(event: any) {
+    event.target.src = 'https://via.placeholder.com/640x480?text=No+Image';
+  }
 }

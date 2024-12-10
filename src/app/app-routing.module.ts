@@ -10,6 +10,11 @@ import { CategoryEditComponent } from './components/category-edit/category-edit.
 import { CategoryCreateComponent } from './components/category-create/category-create.component';
 import { LoginComponent } from './components/login/login.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { UsersListComponent } from './components/users-list/users-list.component';
+import { UserFormComponent } from './components/user-form/user-form.component';
+import { UserCreateComponent } from './components/user-create/user-create.component';
+import { UserEditComponent } from './components/user-edit/user-edit.component';
+import { UserDeleteComponent } from './components/user-delete/user-delete.component';
 
 const routes: Routes = [
   {path: 'products', component: ProductsListComponent},
@@ -21,8 +26,12 @@ const routes: Routes = [
   {path: 'category-edit/:id', component: CategoryEditComponent},
   {path: 'category-create', component: CategoryCreateComponent},
   {path: 'login', component: LoginComponent},
-  {path: '', redirectTo: 'products', pathMatch: 'full'},
-  {path: '**', component: NotFoundComponent}
+  { path: 'users', component: UsersListComponent },
+  { path: 'user-create', component: UserCreateComponent },
+  { path: 'user-edit/:id', component: UserEditComponent },  
+  { path: 'user/delete/:id', component: UserDeleteComponent },
+  { path: '', redirectTo: '/users', pathMatch: 'full' },
+  {path: '**', component: NotFoundComponent},
 ];
 
 @NgModule({

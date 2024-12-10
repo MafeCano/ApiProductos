@@ -17,6 +17,11 @@ import { CategoryEditComponent } from './components/category-edit/category-edit.
 import { CategoryDeleteComponent } from './components/category-delete/category-delete.component';
 import { LoginComponent } from './components/login/login.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { UsersListComponent } from './components/users-list/users-list.component';
+import { UserFormComponent } from './components/user-form/user-form.component';
+import { UserCreateComponent } from './components/user-create/user-create.component';
+import { UserEditComponent } from './components/user-edit/user-edit.component';
+import { UserDeleteComponent } from './components/user-delete/user-delete.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +37,12 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     CategoryEditComponent,
     CategoryDeleteComponent,
     LoginComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    UsersListComponent,
+    UserFormComponent,
+    UserCreateComponent,
+    UserEditComponent,
+    UserDeleteComponent
   ],
   imports: [
     BrowserModule,

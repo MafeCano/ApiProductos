@@ -14,6 +14,15 @@
       <li class="nav-item-custom">
         <a class="nav-link-custom" *ngIf="isAuthenticated" [routerLink]="'/category-create'">Añadir Categoría</a>
       </li>
+
+      <!-- Sección de usuarios -->
+      <li class="nav-item-custom" *ngIf="isAuthenticated">
+        <a class="nav-link-custom" [routerLink]="'/users'">Usuarios</a>
+      </li>
+      <li class="nav-item-custom" *ngIf="isAuthenticated">
+        <a class="nav-link-custom" [routerLink]="'/user-create'">Crear Usuario</a>
+      </li>
+
       <li class="nav-item-custom" *ngIf="!isAuthenticated">
         <a class="nav-link-custom" routerLink="/login">Iniciar sesión</a>
       </li>
@@ -23,4 +32,5 @@
     </ul>
   </div>
 </nav>
+
 <router-outlet></router-outlet>
