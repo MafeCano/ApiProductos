@@ -3,15 +3,32 @@
   <div class="categories-grid">
     <div class="category-card" *ngFor="let category of categories">
       <div class="card-header">
-        <img [src]="category.image[0]" alt="{{category.name}}">
+        <!-- Acceso a la imagen con respaldo en caso de error -->
+        <img
+          [src]="category.image || 'https://via.placeholder.com/150?text=Sin+Imagen'"
+          alt="{{ category.name }}"
+          onerror="this.src='https://via.placeholder.com/150?text=Sin+Imagen'"
+        />
         <h3 class="card-title">{{ category.name }}</h3>
       </div>
       <div class="card-body">
         <p class="card-id">ID: {{ category.id }}</p>
       </div>
       <div class="card-footer">
-        <button class="btn-edit" *ngIf="isAuthenticated" [routerLink]="['/category-edit', category.id]">Editar</button>
-        <button class="btn-delete" *ngIf="isAuthenticated" (click)="deleteCategory(category.id)">Borrar</button>
+        <button
+          class="btn-edit"
+          *ngIf="isAuthenticated"
+          [routerLink]="['/category-edit', category.id]"
+        >
+          Editar
+        </button>
+        <button
+          class="btn-delete"
+          *ngIf="isAuthenticated"
+          (click)="deleteCategory(category.id)"
+        >
+          Borrar
+        </button>
       </div>
     </div>
   </div>

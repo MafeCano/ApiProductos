@@ -1,20 +1,37 @@
 <div class="container">
   <h2>Lista de Productos</h2>
   <div class="row">
-    <div class="col-md-4" *ngFor="let product of products">
-      <div class="card">
-        <img [src]="product.images[0] || 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQs9gUXKwt2KErC_jWWlkZkGabxpeGchT-fyw&s'" alt="{{product.name}}" class="card-img-top">
+    <!-- Itera sobre los productos -->
+    <div class="col-md-4 mb-4" *ngFor="let product of products">
+      <div class="card h-100">
+        <!-- Imagen del producto con respaldo -->
+        <img
+          [src]="product.images?.[0] || 'https://via.placeholder.com/150?text=Sin+Imagen'"
+          alt="{{ product.title }}"
+          class="card-img-top"
+          onerror="this.src='https://via.placeholder.com/150?text=Sin+Imagen'"
+        />
+        <!-- Información del producto -->
         <div class="card-body">
           <h5 class="card-title">{{ product.title }}</h5>
           <p class="card-text">{{ product.description }}</p>
-          <div class="d-flex justify-content-between">
-            <button class="btn btn-warning" *ngIf="isAuthenticated" [routerLink]="['/products-edit', product.id]">
-              Editar
-            </button>
-            <button (click)="deleteProduct(product.id)" class="btn btn-danger" *ngIf="isAuthenticated">
-              Borrar
-            </button>
-          </div>
+        </div>
+        <!-- Acciones del producto -->
+        <div class="card-footer d-flex justify-content-between">
+          <button
+            class="btn btn-warning"
+            *ngIf="isAuthenticated"
+            [routerLink]="['/products-edit', product.id]"
+          >
+            Editar
+          </button>
+          <button
+            (click)="deleteProduct(product.id)"
+            class="btn btn-danger"
+            *ngIf="isAuthenticated"
+          >
+            Borrar
+          </button>
         </div>
       </div>
     </div>

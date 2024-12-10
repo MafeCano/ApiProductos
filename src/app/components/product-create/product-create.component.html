@@ -1,65 +1,83 @@
 <div class="container">
-    <h2>Crear Nuevo Producto</h2>
-    <form (ngSubmit)="createProduct()">
-      <div class="mb-3">
-        <label for="title" class="form-label">Título</label>
-        <input
-          type="text"
-          id="title"
-          class="form-control"
-          [(ngModel)]="product.title"
-          name="title"
-          required
-        />
-      </div>
-      <div class="mb-3">
-        <label for="price" class="form-label">Precio</label>
-        <input
-          type="number"
-          id="price"
-          class="form-control"
-          [(ngModel)]="product.price"
-          name="price"
-          required
-        />
-      </div>
-      <div class="mb-3">
-        <label for="description" class="form-label">Descripción</label>
-        <textarea
-          id="description"
-          class="form-control"
-          [(ngModel)]="product.description"
-          name="description"
-          rows="3"
-          required
-        ></textarea>
-      </div>
-      <div class="mb-3">
-        <label for="category" class="form-label">Categoría</label>
-      <select
-        id="category"
+  <h2>Crear Nuevo Producto</h2>
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    <!-- Título -->
+    <div class="mb-3">
+      <label for="title" class="form-label">Título</label>
+      <input
+        type="text"
+        id="title"
         class="form-control"
-        [(ngModel)]="product.categoryId"
-        name="categoryId"
-        required
-      >
+        formControlName="title"
+        placeholder="Ingresa el título del producto"
+      />
+      <div *ngIf="productForm.get('title')?.touched && productForm.get('title')?.invalid" class="text-danger">
+        <small *ngIf="productForm.get('title')?.hasError('required')">El título es obligatorio.</small>
+        <small *ngIf="productForm.get('title')?.hasError('minlength')">Debe tener al menos 3 caracteres.</small>
+      </div>
+    </div>
+
+    <!-- Precio -->
+    <div class="mb-3">
+      <label for="price" class="form-label">Precio</label>
+      <input
+        type="number"
+        id="price"
+        class="form-control"
+        formControlName="price"
+        placeholder="Ingresa el precio del producto"
+      />
+      <div *ngIf="productForm.get('price')?.touched && productForm.get('price')?.invalid" class="text-danger">
+        <small *ngIf="productForm.get('price')?.hasError('required')">El precio es obligatorio.</small>
+        <small *ngIf="productForm.get('price')?.hasError('min')">Debe ser un número positivo.</small>
+      </div>
+    </div>
+
+    <!-- Descripción -->
+    <div class="mb-3">
+      <label for="description" class="form-label">Descripción</label>
+      <textarea
+        id="description"
+        class="form-control"
+        formControlName="description"
+        rows="3"
+        placeholder="Describe el producto"
+      ></textarea>
+      <div *ngIf="productForm.get('description')?.touched && productForm.get('description')?.invalid" class="text-danger">
+        <small>La descripción es obligatoria.</small>
+      </div>
+    </div>
+
+    <!-- Categoría -->
+    <div class="mb-3">
+      <label for="category" class="form-label">Categoría</label>
+      <select id="category" class="form-control" formControlName="categoryId">
         <option *ngFor="let category of categories" [value]="category.id">
           {{ category.name }}
         </option>
       </select>
+      <div *ngIf="productForm.get('categoryId')?.touched && productForm.get('categoryId')?.invalid" class="text-danger">
+        <small>Selecciona una categoría.</small>
       </div>
-      <div class="mb-3">
-        <label for="image" class="form-label">URL de la Imagen</label>
-        <input
-          type="text"
-          id="image"
-          class="form-control"
-          [(ngModel)]="product.images[0]"
-          name="image"
-          required
-        />
+    </div>
+
+    <!-- URL de la Imagen -->
+    <div class="mb-3">
+      <label for="image" class="form-label">URL de la Imagen</label>
+      <input
+        type="text"
+        id="image"
+        class="form-control"
+        formControlName="images"
+        placeholder="Ingresa la URL de la imagen"
+      />
+      <div *ngIf="productForm.get('images')?.touched && productForm.get('images')?.invalid" class="text-danger">
+        <small *ngIf="productForm.get('images')?.hasError('required')">La URL es obligatoria.</small>
+        <small *ngIf="productForm.get('images')?.hasError('pattern')">Debe ser una URL válida.</small>
       </div>
-      <button type="submit" class="btn btn-primary">Crear Producto</button>
-    </form>
-  </div>
-  
+    </div>
+
+    <!-- Botón de envío -->
+    <button type="submit" class="btn btn-primary" [disabled]="productForm.invalid">Crear Producto</button>
+  </form>
+</div>
