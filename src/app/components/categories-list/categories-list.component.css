@@ -1,0 +1,106 @@
+/* Container Styles */
+.categories-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Title Styles */
+  .categories-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333333;
+    text-align: center;
+  }
+  
+  /* Grid Styles */
+  .categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  /* Card Styles */
+  .category-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    overflow: hidden;
+  }
+  
+  .category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Card Header */
+  .card-header {
+    background-color: #0366d6;
+    padding: 15px;
+    color: white;
+  }
+  
+  .card-title {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  /* Card Body */
+  .card-body {
+    padding: 15px;
+    color: #555;
+    font-size: 1rem;
+    text-align: center;
+  }
+  
+  .card-id {
+    font-weight: 500;
+    color: #777;
+  }
+  
+  /* Card Footer */
+  .card-footer {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px;
+    border-top: 1px solid #eaeaea;
+  }
+  
+  /* Buttons */
+  .btn-edit,
+  .btn-delete {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    color: white;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .btn-edit {
+    background-color: #28a745;
+  }
+  
+  .btn-edit:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+  }
+  
+  .btn-delete {
+    background-color: #d73a49;
+  }
+  
+  .btn-delete:hover {
+    background-color: #c5303d;
+    transform: scale(1.05);
+  }
+  

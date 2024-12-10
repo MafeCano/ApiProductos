@@ -9,6 +9,7 @@ import { CategoriesListComponent } from './components/categories-list/categories
 import { CategoryEditComponent } from './components/category-edit/category-edit.component';
 import { CategoryCreateComponent } from './components/category-create/category-create.component';
 import { LoginComponent } from './components/login/login.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 const routes: Routes = [
   {path: 'products', component: ProductsListComponent},
@@ -19,7 +20,9 @@ const routes: Routes = [
   {path: 'categories', component: CategoriesListComponent},
   {path: 'category-edit/:id', component: CategoryEditComponent},
   {path: 'category-create', component: CategoryCreateComponent},
-  {path: 'login', component: LoginComponent}
+  {path: 'login', component: LoginComponent},
+  {path: '', redirectTo: 'products', pathMatch: 'full'},
+  {path: '**', component: NotFoundComponent}
 ];
 
 @NgModule({

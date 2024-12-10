@@ -1,0 +1,84 @@
+/* Contenedor general */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+}
+
+/* Tarjeta de formulario */
+.form-card {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.555);
+  width: 100%;
+  max-width: 500px;
+  transition: all 0.3s ease;
+}
+
+/* Título del formulario */
+.form-title {
+  text-align: center;
+  font-family: "Concert One", static;
+  font-size: 2rem;
+  color: #030baf; /* Color púrpura */
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 5px rgba(3, 68, 189, 0.8); /* Sombra azul */
+}
+
+/* Etiquetas y campos del formulario */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  font-size: 1rem;
+  color: #030917;
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 1rem;
+  color: #636369;
+  background-color: #f9f9f9;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: #2c52fd; /* Púrpura en el enfoque */
+  background-color: #ffffff;
+  box-shadow: 0 0 5px rgba(44, 82, 253, 0.7);
+}
+
+/* Botón de envío */
+.btn-purple {
+  background-color: #2c52fd;
+  color: #ffffff;
+  border-color: #0d26e0;
+  border-radius: 10px;
+  padding: 10px 20px;
+  width: 100%;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.btn-purple:hover {
+  background-color: #0505b1;
+  border-color: #081eb1;
+  transform: translateY(-2px);
+}
+
+/* Estilos de enfoque del botón */
+.btn-purple:focus {
+  outline: none;
+  box-shadow: 0 0 10px rgba(44, 82, 253, 0.7);
+}

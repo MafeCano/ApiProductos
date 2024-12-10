@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../services/api.service';
 import { Router } from '@angular/router';
 
@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   templateUrl: './product-create.component.html',
   styleUrl: './product-create.component.css'
 })
-export class ProductCreateComponent {
+export class ProductCreateComponent implements OnInit{
 
   product = {
     title: '',
@@ -17,7 +17,14 @@ export class ProductCreateComponent {
     images: ['']
   };
 
+  categories: any []= [];
+
+
   constructor(private apiService: ApiService, private router: Router) {}
+
+  ngOnInit(): void {
+    this.loadCategories();
+  }
 
   createProduct(): void {
     this.apiService.createProduct(this.product).subscribe({
@@ -26,9 +33,23 @@ export class ProductCreateComponent {
         this.router.navigate(['/products']);
       },
       error: (err) => {
+        alert('Error al crear el producto');
         console.error('Error al crear producto:', err);
       }
     });
   }
+
+  loadCategories(): void {
+    this.apiService.getCategories().subscribe({
+      next: (data) => {
+        this.categories = data;
+      },
+      error: (err) => {
+        console.error('Error al obtener las categorías:', err);
+      }
+    });
+  }
+
+
 
 }

@@ -16,6 +16,7 @@ import { CategoryCreateComponent } from './components/category-create/category-c
 import { CategoryEditComponent } from './components/category-edit/category-edit.component';
 import { CategoryDeleteComponent } from './components/category-delete/category-delete.component';
 import { LoginComponent } from './components/login/login.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { LoginComponent } from './components/login/login.component';
     CategoryCreateComponent,
     CategoryEditComponent,
     CategoryDeleteComponent,
-    LoginComponent
+    LoginComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

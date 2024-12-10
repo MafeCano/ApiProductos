@@ -26,6 +26,7 @@ export class ProductDetailComponent implements OnInit {
         this.product = data;
       },
       error: (err) => {
+        alert('Error al obtener el detalle del producto:')
         console.error('Error al obtener el detalle del producto:', err);
       }
     });

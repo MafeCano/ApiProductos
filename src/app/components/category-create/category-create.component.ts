@@ -7,12 +7,12 @@ import { ApiService } from '../../services/api.service';
   styleUrl: './category-create.component.css'
 })
 export class CategoryCreateComponent {
-  category = { name: '', imageUrl: '' };  // Almacena los datos de la nueva categoría
+  category = { name: '', image: '' };  // Almacena los datos de la nueva categoría
 
   constructor(private apiService: ApiService, private router: Router) {}
 
   addCategory(): void {
-    if (this.category.imageUrl) {
+    if (this.category.image) { // Cambié `imageUrl` a `image`
       // Llamar al servicio para crear la categoría
       this.apiService.createCategory(this.category).subscribe({
         next: () => {
@@ -20,7 +20,8 @@ export class CategoryCreateComponent {
           this.router.navigate(['/categories']);
         },
         error: (err) => {
-          console.error('Error al añadir la categoría:', err);
+          alert('Error al añadir la categoría:');
+          console.error(err);
         }
       });
     } else {

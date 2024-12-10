@@ -42,7 +42,7 @@ export class ApiService {
   }
 
   createCategory(category: any): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/categories`, category);
+    return this.http.post<any>(`${this.apiUrl}/categories`, category,);
   }
 
   updateCategory(id: number, category: any): Observable<any> {

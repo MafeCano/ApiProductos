@@ -33,6 +33,7 @@ export class ProductEditComponent {
         this.product = data;
       },
       error: (err) => {
+        alert('Error al cargar el producto')
         console.error('Error al cargar producto:', err);
       }
     });

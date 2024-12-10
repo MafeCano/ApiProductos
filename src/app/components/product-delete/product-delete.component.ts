@@ -28,6 +28,7 @@ export class ProductDeleteComponent implements OnInit {
         this.product = data;
       },
       error: (err) => {
+        alert('Error al cargar el producto.')
         console.error('Error al cargar el producto:', err);
       }
     });

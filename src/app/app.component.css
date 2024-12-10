@@ -1,0 +1,130 @@
+/* Estilos generales */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #040c4e;
+  margin: 0;
+}
+
+/* Navbar personalizada */
+.navbar-custom {
+  background: linear-gradient(to right, #000000, hsl(199, 88%, 70%)); /* Fondo degradado */
+  padding: 10px 0;
+  box-shadow: 0 4px 2px -2px gray;
+  margin-bottom: 20px;
+}
+
+.container-custom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.navbar-brand-custom {
+  color: #fff;
+  font-size: 1.8em;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.navbar-brand-custom img {
+  height: auto;
+  width: 150%;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.navbar-brand-custom img:hover {
+  transform: scale(1.1);
+}
+
+.navbar-nav-custom {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.nav-item-custom {
+  margin: 0 15px;
+}
+
+.nav-link-custom {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.1em;
+  padding: 10px;
+  transition: color 0.3s ease;
+}
+
+.nav-link-custom:hover {
+  color: #0b03ff !important; /* Color de texto al pasar el ratón */
+}
+
+.nav-link-custom.active {
+  background-color: #0056b3;
+  border-radius: 5px;
+}
+
+/* Estilo para el menú desplegable */
+.navbar-nav-custom .dropdown-menu {
+  border-radius: 8px; /* Bordes redondeados */
+  background-color: #f8f9fa; /* Fondo claro */
+  border: 1px solid #dee2e6; /* Borde suave */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.navbar-nav-custom .dropdown-item {
+  font-weight: 500;
+  padding: 10px 15px;
+  font-size: 0.875rem; /* Tamaño de letra más pequeño */
+  transition: background-color 0.3s ease;
+}
+
+.navbar-nav-custom .dropdown-item:hover {
+  background-color: #e9ecef; /* Efecto hover */
+  color: #007bff; /* Color de texto al pasar el ratón */
+}
+
+/* Personalizar el texto del botón de categorías */
+.navbar-nav-custom .dropdown-toggle {
+  color: #495057;
+  font-weight: 600;
+}
+
+.navbar-nav-custom .dropdown-toggle:hover {
+  color: #007bff; /* Color de texto al pasar el ratón */
+}
+
+/* Botón de cerrar sesión */
+.btn-custom {
+  background-color: #dc3545;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  font-size: 1.1em;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.btn-custom:hover {
+  background-color: #0b1dc2;
+  border-color: #1104c0;
+}
+
+/* Estilos Responsivos */
+@media (max-width: 768px) {
+  .navbar-nav-custom {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .nav-item-custom {
+    margin-bottom: 10px;
+  }
+
+  .navbar-custom {
+    padding: 10px 0;
+  }
+}

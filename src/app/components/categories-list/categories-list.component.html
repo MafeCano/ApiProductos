@@ -1,23 +1,18 @@
-<div class="container">
-    <h2>Lista de Categorías</h2>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Nombre</th>
-          <th>Acciones</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let category of categories">
-          <td>{{ category.id }}</td>
-          <td>{{ category.name }}</td>
-          <td>
-            <button class="btn btn-warning" *ngIf="isAuthenticated" [routerLink]="['/category-edit', category.id]">Editar</button>
-            <button class="btn btn-danger" *ngIf="isAuthenticated" (click)="deleteCategory(category.id)">Borrar</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+<div class="categories-container">
+  <h2 class="categories-title">Lista de Categorías</h2>
+  <div class="categories-grid">
+    <div class="category-card" *ngFor="let category of categories">
+      <div class="card-header">
+        <img [src]="category.image[0]" alt="{{category.name}}">
+        <h3 class="card-title">{{ category.name }}</h3>
+      </div>
+      <div class="card-body">
+        <p class="card-id">ID: {{ category.id }}</p>
+      </div>
+      <div class="card-footer">
+        <button class="btn-edit" *ngIf="isAuthenticated" [routerLink]="['/category-edit', category.id]">Editar</button>
+        <button class="btn-delete" *ngIf="isAuthenticated" (click)="deleteCategory(category.id)">Borrar</button>
+      </div>
+    </div>
+  </div>
 </div>
-  

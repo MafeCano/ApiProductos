@@ -1,39 +1,26 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="/">Platzi API</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/products" routerLinkActive="active">Productos</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/product-create" *ngIf="isAuthenticated" routerLinkActive="active">Crear Producto</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="'/categories'">Categorías</a> 
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" *ngIf="isAuthenticated" [routerLink]="'/category-create'">Añadir Categoría</a>
-          </li>
-          <li class="nav-item" *ngIf="!isAuthenticated">
-            <a class="nav-link" routerLink="/login">Iniciar sesión</a>
-          </li>
-          <li class="nav-item" *ngIf="isAuthenticated">
-            <button class="btn btn-link nav-link" (click)="logout()">Cerrar sesión</button>
-          </li>
-        </ul>
-      </div>
-    </div>
-</nav>  
+<nav class="navbar-custom">
+  <div class="container-custom">
+    <a class="navbar-brand-custom" href="/">Shopping</a>
+    <ul class="navbar-nav-custom">
+      <li class="nav-item-custom">
+        <a class="nav-link-custom" routerLink="/products" routerLinkActive="active">Productos</a>
+      </li>
+      <li class="nav-item-custom">
+        <a class="nav-link-custom" routerLink="/product-create" *ngIf="isAuthenticated" routerLinkActive="active">Crear Producto</a>
+      </li>
+      <li class="nav-item-custom">
+        <a class="nav-link-custom" [routerLink]="'/categories'">Categorías</a>
+      </li>
+      <li class="nav-item-custom">
+        <a class="nav-link-custom" *ngIf="isAuthenticated" [routerLink]="'/category-create'">Añadir Categoría</a>
+      </li>
+      <li class="nav-item-custom" *ngIf="!isAuthenticated">
+        <a class="nav-link-custom" routerLink="/login">Iniciar sesión</a>
+      </li>
+      <li class="nav-item-custom" *ngIf="isAuthenticated">
+        <button class="btn-custom" (click)="logout()">Cerrar sesión</button>
+      </li>
+    </ul>
+  </div>
+</nav>
 <router-outlet></router-outlet>

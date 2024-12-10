@@ -29,7 +29,8 @@ export class CategoriesListComponent implements OnInit{
         this.categories = data;
       },
       error: (err) => {
-        console.error('Error al obtener las categorías:', err);
+        alert('Error al obtener las categorías:');
+        console.error(err);
       }
     });
   }

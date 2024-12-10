@@ -28,6 +28,7 @@ export class CategoryEditComponent implements OnInit{
         this.category = data;
       },
       error: (err) => {
+        alert('Error al cargar la categoria')
         console.error('Error al cargar categoría:', err);
       }
     });

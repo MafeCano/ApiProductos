@@ -28,6 +28,7 @@ export class ProductsListComponent implements OnInit{
         this.products = data;
       },
       error: (err) => {
+        alert('Error al obtener los productos');
         console.error('Error al obtener productos:', err);
       }
     });
@@ -48,4 +49,8 @@ export class ProductsListComponent implements OnInit{
       });
     }
   }
+    // Función para alternar la expansión de la descripción
+    toggleExpand(product: any) {
+      product.expanded = !product.expanded;
+    }
 }

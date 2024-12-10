@@ -10,7 +10,7 @@ export class AuthService {
   constructor() { }
 
   login(username: string, password: string): boolean {
-    if (username === 'user' && password === 'password') { // Validación simple (puedes modificarla)
+    if (username === 'user' && password === 'password') { 
       this.isAuthenticated.next(true);  // Cambia el estado a 'autenticado'
       return true;
     }
